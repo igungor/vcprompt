@@ -76,22 +76,18 @@ func (v vcs) String() string {
 		}
 
 		// we have format string
-		next, _ := reader.Peek(1)
-		switch string(next) {
-		case "b": // branch name
-			reader.ReadRune()
+		next, _, _ := reader.ReadRune()
+		switch next {
+		case 'n': // version control system name
+			buf.WriteString(v.name)
+		case 'b': // branch name
 			buf.WriteString(v.branch)
-		case "r": // revision number
-			reader.ReadRune()
+		case 'r': // revision number
 			buf.WriteString(v.revision)
-		case "m": // is modified flag
-			reader.ReadRune()
+		case 'm': // is modified flag
 			if v.isModified {
 				buf.WriteString("+")
 			}
-		case "n": // version control system name
-			reader.ReadRune()
-			buf.WriteString(v.name)
 		default:
 			buf.WriteString(string(next))
 		}
