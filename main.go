@@ -97,7 +97,7 @@ func (v vcs) String() string {
 }
 
 // gitInfo checks for a git project and extracts several states of it, such as
-// branch, revision and etc.
+// branch, revision etc.
 func gitInfo() vcs {
 	v := vcs{name: "git", available: true}
 
