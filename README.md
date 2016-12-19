@@ -9,7 +9,7 @@ vcprompt is originally a C program, which happens to be reside in
 ## Installation
 
 ```sh
-go get github.com/igungor/vcprompt
+go get -u github.com/igungor/vcprompt
 ```
 
 ## Usage
